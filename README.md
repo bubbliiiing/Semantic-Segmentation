@@ -1,5 +1,5 @@
 # Semantic-Segmentation
-I will upload many semantic segmentation models to this repository for you to learn,including segnet,pspnet,unet,deeplab_v3_plus,etc.  
+I will upload many semantic segmentation models to this repository for you to learn, including segnet, pspnet, unet, deeplab_v3_plus, etc.  
 我将会将许多的语义分割的模型上传到这个仓库中提供给大家学习使用，包括segnet,pspnet,unet,deeplab_v3_plus等。  
 
 # usage
