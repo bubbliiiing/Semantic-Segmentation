@@ -13,11 +13,14 @@ Before training, you need to download the dataset and store it in the dataset
 提取码：pp6w   
 
 # 训练效果
-## SegNet_Mobile
 原图Before
 ![原图Before](/SegNet_Mobile/img/timg.jpg)  
+## SegNet_Mobile
 处理后After processing
 ![处理后After processing](/SegNet_Mobile/img_out/timg.jpg)  
+## Unet_Mobile
+处理后After processing
+![处理后After processing](/Unet_Mobile/img_out/timg.jpg)  
 
 # Reference
 [image-segmentation-keras](https://github.com/divamgupta/image-segmentation-keras)  
