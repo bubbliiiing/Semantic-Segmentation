@@ -21,6 +21,12 @@ Before training, you need to download the dataset and store it in the dataset
 ## Unet_Mobile
 处理后After processing
 ![处理后After processing](/Unet_Mobile/img_out/timg.jpg)  
+## pspnet_Mobile
+处理后After processing
+![处理后After processing](/pspnet_Mobile/img_out/timg.jpg)  
+## pspnet_Multi_Mobile
+处理后After processing
+![处理后After processing](/pspnet_Multi_Mobile/img_out/timg.jpg)  
 
 # Reference
 [image-segmentation-keras](https://github.com/divamgupta/image-segmentation-keras)  
