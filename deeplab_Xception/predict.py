@@ -8,8 +8,8 @@ import os
 
 class_colors = [[0,0,0],[0,255,0]]
 NCLASSES = 2
-HEIGHT = 416
-WIDTH = 416
+HEIGHT = 512
+WIDTH = 512
 
 
 model = model = Deeplabv3(classes=2,input_shape=(HEIGHT,WIDTH,3))
