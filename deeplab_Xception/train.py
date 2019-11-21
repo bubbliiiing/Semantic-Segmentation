@@ -115,7 +115,7 @@ if __name__ == "__main__":
             validation_data=generate_arrays_from_file(lines[num_train:], batch_size),
             validation_steps=max(1, num_val//batch_size),
             epochs=50,
-            initial_epoch=5,
+            initial_epoch=0,
             callbacks=[checkpoint_period, reduce_lr])
 
     model.save_weights(log_dir+'last1.h5')
