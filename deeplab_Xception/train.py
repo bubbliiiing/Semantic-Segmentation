@@ -11,8 +11,8 @@ ALPHA = 1.0
 WEIGHTS_PATH_X = "https://github.com/bonlime/keras-deeplab-v3-plus/releases/download/1.1/deeplabv3_xception_tf_dim_ordering_tf_kernels.h5"
                     
 NCLASSES = 2
-HEIGHT = 416
-WIDTH = 416
+HEIGHT = 512
+WIDTH = 512
 
 def generate_arrays_from_file(lines,batch_size):
     # 获取总长度
