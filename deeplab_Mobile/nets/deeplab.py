@@ -62,7 +62,7 @@ def Deeplabv3(input_shape=(416, 416, 3), classes=21, alpha=1.):
     img_input = Input(shape=input_shape)
 
     # (52, 52, 320)
-    x = mobilenetV2(img_input,alpha)
+    x,skip1 = mobilenetV2(img_input,alpha)
     size_before = tf.keras.backend.int_shape(x)
 
     # 全部求平均后，再利用expand_dims扩充维度，1x1
@@ -105,11 +105,31 @@ def Deeplabv3(input_shape=(416, 416, 3), classes=21, alpha=1.):
     x = BatchNormalization(name='concat_projection_BN', epsilon=1e-5)(x)
     x = Activation('relu')(x)
     x = Dropout(0.1)(x)
-    # 52,52,2
-    x = Conv2D(classes, (1, 1), padding='same')(x)
-    
+
+
+    # skip1.shape[1:3] 为 104,104
+    # skip1 104, 104, 256
+    x = Lambda(lambda xx: tf.image.resize_images(x, skip1.shape[1:3]))(x)
+                                                    
+    # 104, 104, 48
+    dec_skip1 = Conv2D(48, (1, 1), padding='same',
+                        use_bias=False, name='feature_projection0')(skip1)
+    dec_skip1 = BatchNormalization(
+        name='feature_projection0_BN', epsilon=1e-5)(dec_skip1)
+    dec_skip1 = Activation('relu')(dec_skip1)
+
+    # 104,104,304
+    x = Concatenate()([x, dec_skip1])
+    x = SepConv_BN(x, 256, 'decoder_conv0',
+                    depth_activation=True, epsilon=1e-5)
+    x = SepConv_BN(x, 256, 'decoder_conv1',
+                    depth_activation=True, epsilon=1e-5)
+
     # 416,416,2
     size_before3 = tf.keras.backend.int_shape(img_input)
+
+    # 52,52,2
+    x = Conv2D(classes, (1, 1), padding='same')(x)
     x = Lambda(lambda xx:tf.image.resize_images(xx,size_before3[1:3]))(x)
 
     x = Reshape((-1,classes))(x)
