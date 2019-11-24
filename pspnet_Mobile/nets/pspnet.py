@@ -2,8 +2,6 @@ from keras.models import *
 from keras.layers import *
 from nets.mobilenet import get_mobilenet_encoder
 
-from keras_segmentation.models.model_utils import get_segmentation_model
-
 IMAGE_ORDERING = 'channels_last'
 MERGE_AXIS = -1
 
