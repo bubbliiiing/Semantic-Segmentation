@@ -1,16 +1,16 @@
 # Semantic-Segmentation
-I will upload many semantic segmentation models to this repository for you to learn, including segnet, pspnet, unet, deeplab_v3_plus, etc.  
 我将会将许多的语义分割的模型上传到这个仓库中提供给大家学习使用，包括segnet,pspnet,unet,deeplab_v3_plus等。  
 
-# usage
-You can download it and enter the folder of the model you want to train, and then run train.py to train  
+# 用法
 你可以下载后进入你所想要训练的模型的文件夹，然后运行train.py进行训练。  
-Before training, you need to download the dataset and store it in the dataset  
 在训练之前，需要先下载数据集，并将其存储到dataset中。  
+大家关心的多分类的代码在Muiti_Class_deeplab_Mobile里。  
 
-百度网盘连接如下：Baidu network disk is connected as follows  
-链接：https://pan.baidu.com/s/1uzwqLaCXcWe06xEXk1ROWw  
-提取码：pp6w   
+斑马线数据集：  
+链接：https://pan.baidu.com/s/1uzwqLaCXcWe06xEXk1ROWw 提取码：pp6w   
+
+VOC数据集：  
+链接: https://pan.baidu.com/s/1Urh9W7XPNMF8yR67SDjAAQ 提取码: cvy2
 
 # 训练效果
 原图Before
