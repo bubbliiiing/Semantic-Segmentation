@@ -61,7 +61,7 @@ if __name__ == "__main__":
 
     weight_path = BASE_WEIGHT_PATH + model_name
     weights_path = keras.utils.get_file(model_name, weight_path )
-    model.load_weights("weights_path",by_name=True,skip_mismatch=True)
+    model.load_weights(weights_path,by_name=True,skip_mismatch=True)
 
     
     # 打开数据集的txt
