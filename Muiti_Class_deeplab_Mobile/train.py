@@ -24,7 +24,7 @@ def letterbox_image(image, size, type):
     nw = int(iw*scale)
     nh = int(ih*scale)
     
-    image = image.resize((nw,nh), Image.BICUBIC)
+    image = image.resize((nw,nh), Image.NEAREST)
     if(type=="jpg"):
         new_image = Image.new('RGB', size, (0,0,0))
     elif(type=="png"):
@@ -50,7 +50,7 @@ def get_random_data(image, label, input_shape, jitter=.1, hue=.1, sat=1.1, val=1
     else:
         nw = int(scale*w)
         nh = int(nw/new_ar)
-    image = image.resize((nw,nh), Image.BICUBIC)
+    image = image.resize((nw,nh), Image.NEAREST)
     label = label.resize((nw,nh), Image.NEAREST)
     # place image
     dx = int(rand(0, w-nw))
