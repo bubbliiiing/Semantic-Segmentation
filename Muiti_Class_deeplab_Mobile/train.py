@@ -51,7 +51,7 @@ def get_random_data(image, label, input_shape, jitter=.1, hue=.1, sat=1.1, val=1
         nw = int(scale*w)
         nh = int(nw/new_ar)
     image = image.resize((nw,nh), Image.BICUBIC)
-    label = label.resize((nw,nh), Image.BICUBIC)
+    label = label.resize((nw,nh), Image.NEAREST)
     # place image
     dx = int(rand(0, w-nw))
     dy = int(rand(0, h-nh))
