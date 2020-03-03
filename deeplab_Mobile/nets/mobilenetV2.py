@@ -85,7 +85,7 @@ def mobilenetV2(inputs,alpha=1):
                             expansion=6, block_id=1, skip_connection=False)
     x = _inverted_res_block(x, filters=24, alpha=alpha, stride=1,
                             expansion=6, block_id=2, skip_connection=True)
-
+    skip1 = x
     # 104,104 -> 52,52
     x = _inverted_res_block(x, filters=32, alpha=alpha, stride=2,
                             expansion=6, block_id=3, skip_connection=False)
@@ -119,4 +119,4 @@ def mobilenetV2(inputs,alpha=1):
 
     x = _inverted_res_block(x, filters=320, alpha=alpha, stride=1, rate=4,
                             expansion=6, block_id=16, skip_connection=False)
-    return x
+    return x,skip1
