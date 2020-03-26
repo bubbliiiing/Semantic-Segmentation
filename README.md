@@ -1,5 +1,4 @@
 ## Semantic-Segmentation语义分割模型在Keras当中的实现
-我将会将许多的语义分割的模型上传到这个仓库中提供给大家学习使用，包括segnet,pspnet,unet,deeplab_v3_plus等。  
 ---
 
 ### 目录
