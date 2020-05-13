@@ -7,6 +7,9 @@
 3. [训练效果 Performance](#训练效果)
 4. [参考资料 Reference](#Reference)
 
+### 2020/5/13更新
+将所有的loss进行了修改，此前所用的binary_crossentropy不是特别好，换成categorical_crossentropy了！
+
 ### 所需环境
 tensorflow-gpu==1.13.1  
 keras==2.1.5  
