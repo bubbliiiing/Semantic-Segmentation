@@ -45,8 +45,7 @@ def generate_arrays_from_file(lines,batch_size):
         yield (np.array(X_train),np.array(Y_train))
 
 def loss(y_true, y_pred):
-    crossloss = K.binary_crossentropy(y_true,y_pred)
-    loss = 16 * K.sum(crossloss)/HEIGHT/WIDTH
+    loss = K.categorical_crossentropy(y_true,y_pred)
     return loss
 
 if __name__ == "__main__":
