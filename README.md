@@ -3,9 +3,13 @@
 
 ### 注意事项
 语义分割就要重置了！现在已经重置的有PSPnet。     
-PSPnet重制版如下：    
+PSPnet-Keras重制版如下：    
 源码路径：https://github.com/bubbliiiing/pspnet-keras    
-视频地址：https://www.bilibili.com/video/BV1bz4y1f77C   
+视频地址：https://www.bilibili.com/video/BV1bz4y1f77C 
+
+PSPnet-Pytorch重制版如下：    
+源码路径：https://github.com/bubbliiiing/pspnet-pytorch     
+视频地址：https://www.bilibili.com/video/BV1zt4y1q7HH
 
 
 ### 目录
