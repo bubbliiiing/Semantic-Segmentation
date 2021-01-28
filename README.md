@@ -35,7 +35,7 @@ keras==2.1.5
 
 在使用前一定要注意根目录与相对目录的选取，这样才能正常进行训练。
 
-## 使用方法与数据集下载
+## 数据集下载
 斑马线数据集：  
 链接：https://pan.baidu.com/s/1uzwqLaCXcWe06xEXk1ROWw 提取码：pp6w   
 
