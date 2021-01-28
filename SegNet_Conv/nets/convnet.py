@@ -1,15 +1,15 @@
-from keras.models import *
-from keras.layers import *
-from keras.activations import *
-import keras.backend as K
 import keras
+import keras.backend as K
+from keras.activations import *
+from keras.layers import *
+from keras.models import *
 
 IMAGE_ORDERING = 'channels_last'
 
 
-def get_convnet_encoder( input_height=416 ,  input_width=416 , pretrained='imagenet' ):
+def get_convnet_encoder(input_height=416 ,input_width=416):
 
-	img_input = Input(shape=(input_height,input_width , 3 ))
+	img_input = Input(shape=(input_height,input_width,3))
 
 	# 416,416,3 -> 208,208,64
 	x = Conv2D(64, (3, 3), activation='relu', padding='same', name='block1_conv1')(img_input)
@@ -17,7 +17,7 @@ def get_convnet_encoder( input_height=416 ,  input_width=416 , pretrained='image
 	x = MaxPooling2D((2, 2), strides=(2, 2), name='block1_pool')(x)
 	f1 = x
 
-	# 208,208,64 -> 128,128,128
+	# 208,208,64 -> 104,104,128
 	x = Conv2D(128, (3, 3), activation='relu', padding='same', name='block2_conv1')(x)
 	x = Conv2D(128, (3, 3), activation='relu', padding='same', name='block2_conv2')(x)
 	x = MaxPooling2D((2, 2), strides=(2, 2), name='block2_pool')(x)
@@ -37,6 +37,7 @@ def get_convnet_encoder( input_height=416 ,  input_width=416 , pretrained='image
 	x = MaxPooling2D((2, 2), strides=(2, 2), name='block4_pool')(x)
 	f4 = x 
 
+	# 在视频中，这个f5并没有用到
 	# 26,26,512 -> 13,13,512
 	x = Conv2D(512, (3, 3), activation='relu', padding='same', name='block5_conv1')(x)
 	x = Conv2D(512, (3, 3), activation='relu', padding='same', name='block5_conv2')(x)
@@ -44,5 +45,5 @@ def get_convnet_encoder( input_height=416 ,  input_width=416 , pretrained='image
 	x = MaxPooling2D((2, 2), strides=(2, 2), name='block5_pool')(x)
 	f5 = x 
 
-	return img_input , [f1 , f2 , f3 , f4 , f5 ]
+	return img_input, [f1 , f2 , f3 , f4 , f5]
 
