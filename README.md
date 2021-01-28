@@ -20,10 +20,9 @@ Unet-Keras重制版如下：
 1. [所需环境 Environment](#所需环境)
 2. [注意事项 Attention](#注意事项)
 3. [数据集下载 Download](#数据集下载)
-4. [预测步骤 How2predict](#预测步骤)
-5. [训练步骤 How2train](#训练步骤)
-6. [miou计算 miou](#miou计算)
-7. [参考资料 Reference](#Reference)
+4. [训练步骤 How2train](#训练步骤)
+5. [预测步骤 How2predict](#预测步骤)
+6. [参考资料 Reference](#Reference)
 
 ## 所需环境
 tensorflow-gpu==1.13.1  
