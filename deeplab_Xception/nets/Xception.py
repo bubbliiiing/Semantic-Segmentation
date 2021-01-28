@@ -1,16 +1,8 @@
-from keras.models import Model
 from keras import layers
-from keras.layers import Input
-from keras.layers import Lambda
-from keras.layers import Activation
-from keras.layers import Concatenate
-from keras.layers import Add
-from keras.layers import Dropout
-from keras.layers import BatchNormalization
-from keras.layers import Conv2D
-from keras.layers import DepthwiseConv2D
-from keras.layers import ZeroPadding2D
-from keras.layers import GlobalAveragePooling2D
+from keras.layers import (Activation, Add, BatchNormalization, Concatenate,
+                          Conv2D, DepthwiseConv2D, Dropout,
+                          GlobalAveragePooling2D, Input, Lambda, ZeroPadding2D)
+from keras.models import Model
 
 
 def _conv2d_same(x, filters, prefix, stride=1, kernel_size=3, rate=1):
@@ -34,7 +26,6 @@ def _conv2d_same(x, filters, prefix, stride=1, kernel_size=3, rate=1):
                       padding='valid', use_bias=False,
                       dilation_rate=(rate, rate),
                       name=prefix)(x)
-
 
 def SepConv_BN(x, filters, prefix, stride=1, kernel_size=3, rate=1, depth_activation=False, epsilon=1e-3):
     # 计算padding的数量，hw是否需要收缩
@@ -69,7 +60,6 @@ def SepConv_BN(x, filters, prefix, stride=1, kernel_size=3, rate=1, depth_activa
 
     return x
 
-
 def _xception_block(inputs, depth_list, prefix, skip_connection_type, stride,
                     rate=1, depth_activation=False, return_skip=False):
 
@@ -98,8 +88,6 @@ def _xception_block(inputs, depth_list, prefix, skip_connection_type, stride,
     else:
         return outputs
 
-
-
 def Xception(inputs,alpha=1,OS=16):
     if OS == 8:
         entry_block3_stride = 1
@@ -112,23 +100,23 @@ def Xception(inputs,alpha=1,OS=16):
         exit_block_rates = (1, 2)
         atrous_rates = (6, 12, 18)
 
-    # 256,256,32
+    # 512,512,3 -> 256,256,32
     x = Conv2D(32, (3, 3), strides=(2, 2),
                 name='entry_flow_conv1_1', use_bias=False, padding='same')(inputs)
     x = BatchNormalization(name='entry_flow_conv1_1_BN')(x)
     x = Activation('relu')(x)
 
-    # 256,256,64
+    # 256,256,32 -> 256,256,64
     x = _conv2d_same(x, 64, 'entry_flow_conv1_2', kernel_size=3, stride=1)
     x = BatchNormalization(name='entry_flow_conv1_2_BN')(x)
     x = Activation('relu')(x)
 
-    # 256,256,128 -> 256,256,128 -> 128,128,128
+    # 256,256,64 -> 256,256,128 -> 256,256,128 -> 128,128,128
     x = _xception_block(x, [128, 128, 128], 'entry_flow_block1',
                         skip_connection_type='conv', stride=2,
                         depth_activation=False)
     
-    # 128,128,256 -> 128,128,256 -> 64,64,256
+    # 128,128,128 -> 128,128,256 -> 128,128,256 -> 64,64,256
     # skip = 128,128,256
     x, skip1 = _xception_block(x, [256, 256, 256], 'entry_flow_block2',
                                 skip_connection_type='conv', stride=2,
