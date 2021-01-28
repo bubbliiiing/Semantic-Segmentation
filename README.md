@@ -1,7 +1,7 @@
 ## Semantic-Segmentation语义分割模型在Keras当中的实现
 ---
 
-## 注意事项
+## 大通知！
 语义分割就要重置了！现在已经重置的有PSPnet。     
 PSPnet-Keras重制版如下：    
 源码路径：https://github.com/bubbliiiing/pspnet-keras    
