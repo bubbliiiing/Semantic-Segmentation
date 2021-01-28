@@ -1,6 +1,9 @@
 import os
-from PIL import Image
+
 import numpy as np
+from PIL import Image
+
+
 def main():
     # 读取原文件夹
     count = os.listdir("./before/") 
