@@ -11,9 +11,24 @@ PSPnet-Pytorch重制版如下：
 源码路径：https://github.com/bubbliiiing/pspnet-pytorch     
 视频地址：https://www.bilibili.com/video/BV1zt4y1q7HH     
 
+PSPnet-Tensorflow2重制版如下：    
+源码路径：https://github.com/bubbliiiing/pspnet-tf2     
+视频地址：https://www.bilibili.com/video/BV1Wh411f7NU     
+
 Unet-Keras重制版如下：  
 源码路径：https://github.com/bubbliiiing/unet-keras    
 视频地址：https://www.bilibili.com/video/BV1St4y1r7hE      
+
+Unet-Pytorch重制版如下：  
+源码路径：https://github.com/bubbliiiing/unet-pytorch    
+视频地址：https://www.bilibili.com/video/BV1rz4y117rR  
+
+Unet-Tensorflow2重制版如下：  
+源码路径：https://github.com/bubbliiiing/unet-tf2    
+
+Deeplab-Keras重制版如下：  
+源码路径：https://github.com/bubbliiiing/deeplabv3-plus-keras   
+
 
 
 ## 目录
