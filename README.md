@@ -2,7 +2,6 @@
 ---
 
 ## 大通知！
-语义分割就要重置了！现在已经重置的有PSPnet。     
 PSPnet-Keras重制版如下：    
 源码路径：https://github.com/bubbliiiing/pspnet-keras    
 视频地址：https://www.bilibili.com/video/BV1bz4y1f77C 
